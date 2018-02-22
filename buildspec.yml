@@ -1,0 +1,19 @@
+version: 0.2
+env:
+  variables:
+    AWS_DEFAULT_REGION: "us-west-2"
+
+phases:
+  install:
+    commands:
+      - wget https://releases.hashicorp.com/terraform/0.11.1/terraform_0.11.1_linux_amd64.zip -O /tmp/terraform.zip
+      - mkdir /tmp/terraform
+      - unzip /tmp/terraform.zip -d /tmp/terraform
+      - chmod 755 -R /tmp/terraform
+      - mv /tmp/terraform/* /usr/local/bin/
+      - rm -f /tmp/terraform.zip
+      - pip install botocore boto3
+      - apt-get update && apt-get install -y curl jq
+  build:
+    commands:
+      - ./script.sh
