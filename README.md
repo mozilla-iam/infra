@@ -23,7 +23,7 @@ been modified to write each build artifact with the following object key naming
 structure in S3:
 
 ```
-/build_artifacts/${repository_owner}/${repository_name}.zip
+/${GitHubRepoOwner}/${GitHubRepo}/${GitHubRepoOwner}_${GitHubRepo}.zip
 ```
 
 The [CodePipeline for each
